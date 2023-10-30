@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #514c4c;">
+         <children>
+            <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="194.0" text="Choose a source port">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Default.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="234.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="760.0" layoutY="15.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ODA_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="700.0" layoutY="15.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/ZD_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="820.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/DEXP_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="880.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/DMSK_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="940.0" layoutY="14.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0">
+               <graphic>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <TextField layoutX="84.0" layoutY="117.0" prefHeight="40.0" prefWidth="280.0" promptText="Search for a wad" />
+      <Button layoutX="380.0" layoutY="117.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Tags" />
+      <Button layoutX="496.0" layoutY="117.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="32.0">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/Default.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="559.0" layoutY="117.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="32.0">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/asc.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ScrollPane layoutX="84.0" layoutY="167.0" prefHeight="377.0" prefWidth="527.0" style="-fx-background-color: #5b5b5b; -fx-border-color: #5b5b5b;" />
+   </children>
+</Pane>
