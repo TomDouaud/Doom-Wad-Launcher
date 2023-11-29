@@ -1,25 +1,23 @@
 /*
- * DWL.java 				                     30 octobre 2023
- * Made by Tom Douaud, based on https://github.com/GroupeSAETPA1/Quiz 
- * (An academic Quiz project made with other students, please check the github page for further information)
+ * DWL.java 				                     29 november 2023
  */
 
 package application;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
+import application.model.MainModel;
+import application.view.AlertBox;
+import application.view.ViewManager;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- * Main class that instanciates the View and the Controller
+ * Main class of the application who instanciates the view, 
+ * the models and the cotrollers
  *
  * TODO A enlever à la fin
  * Mettre dans les "VM argument" :
@@ -30,80 +28,120 @@ import javafx.stage.Stage;
 public class DWL extends Application {
 
 	/**
-	 * Main window of the application.
-	 * The scene associated will be modified
-	 * with the herited class ViewManager
-	 * by the user inputs
+	 * The main stage of the application
+	 * The scene associated will be modified by the herited class ViewManager
+	 * depending of the user's inputs
 	 */
-	public static Stage mainWindow;
+	public static Stage mainStage;
+	
+	private static DWL instance;
 
-	/**
-	 * TODO commenter
-	 */
+	/** The name of all the .fxml files of the application */
 	private ArrayList<String> ressources;
 
-	/**
-     * TODO commenter
-     */
-	private static HashMap<String, Scene> scenes;
-
     /**
-     * TODO commenter cette méthode
+     * Main function who launches the JavaFX window
+     * @param args not used
+     */
+    public static void main(String[] args) {
+    	launch(args);
+    }
+    
+    /**
+     * Lauches the application
+     * @throws InvalidNameException 
      */
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-
-		ressources = new ArrayList<>();
-		scenes = new HashMap<>();
-
-		ressources.add("Acceuil.fxml");
-        // TODO Add here the others view to be loader
-
+        instance = this;
+		ressources = new ArrayList<String>();
+		ViewManager.initializeScene();
+		
+	    ressources.add("Main.fxml");
+		// ressources.add("Editeur.fxml");
+		
 		for (String element : ressources) {
-			try { 
-				Parent root = FXMLLoader.load(getClass().getResource("view/" + element));
-				scenes.put(element, new Scene(root));
-			} catch (IOException e) {
-				System.err.println("Can't load : " + element);
-				e.printStackTrace();
-			}
+			ViewManager.load(element);
 		}
 
 		 try {
-            primaryStage.getIcons().add(new Image("application/view/images/Proto1.png"));
+		    Image logo 
+		    = new Image("application/vue/images/IconePrincipale.png"); // TODO le logo de l'application
+		    
+            primaryStage.getIcons().add(logo);
          } catch (Exception e) {
-            System.err.println("Error : Can't find the icon");
+            System.err.println("Error : the icon is not found");
          }
-		primaryStage.setTitle("DWL - Doom Wad Launcher 0.2");
-		mainWindow = primaryStage;
-		primaryStage.setScene(scenes.get("Main.fxml"));
-		mainWindow.setResizable(false);
+
+		 
+		primaryStage.setTitle("DWL - Doom Wad Launcher");
+		mainStage = primaryStage;
+		primaryStage.setScene(ViewManager.getScene("Main.fxml"));
+		mainStage.setResizable(false);
+		
+		primaryStage.setOnCloseRequest((e) -> {
+			try {
+			    if (AlertBox.showConfirmationBox("Do you really whant to quit the application ?")) {
+			    	// MainModel.getInstance().serialiser();
+			        Platform.exit();            
+		        } else {
+		        	// If the user made a mistake, 
+		        	// he can cancel the exit function
+		        	e.consume();
+		        }
+			} catch (InternalError e1) { // | IOException e1) { TODO the serialisation
+				e1.printStackTrace();
+				System.err.println("Error in the save of the data");
+			}
+		});
+		
 		primaryStage.show();
 	}
 	
 	/**
-	 * Changes the window to the one in parameter
-     * @param window (String) the windows name in .fxml
+	 * Getter of the instance of this class
+	 * @return the instance of this class
+	 */
+	public static DWL getInstance() {
+    	return instance;
+    }
+	
+	/**
+	 * Load another view with the ViewManager
+	 * @param view (String) the new view like : Example.fxml
+	 */
+	public static void load(String view) {
+		ViewManager.load(view);
+	}
+
+    /**
+	 * Window change management
+     * @param view (String) the new view like : Example.fxml
      */
-	public static void changerVue(String window) {
-		mainWindow.setTitle("DWL - " + window.split(".fxml")[0]);
-		mainWindow.setScene(scenes.get(window));
-		mainWindow.show();
+	public static void changeView(String view) {
+		ViewManager.changeView(view);
 	}
 	
 	/**
-     * Function called to quit the application
+     * Fuction called by the controlleurs to quit the application
+	 * @throws IOException 
+	 * @throws InternalError 
      */
-	public static void quit( ) {
-	    Platform.exit();
+	public static void quit() throws InternalError, IOException {
+	    if (AlertBox.showConfirmationBox("Do you really whant to quit the application ?")) {
+	    	MainModel.getInstance().serialize();
+	        Platform.exit();            
+        }
 	}
-
+	
 	/**
-	 * Main Function that launches JavaFX and the controllers and the models
-	 * @param args not used
+	 * Reloads a view
+	 * @param view (String) the new view like : Example.fxml
 	 */
-	public static void main(String args[]) {
-		launch(args);
-		// new ControleurPrincipal();	FIXME
+	public static void loadAndChangeView(String view) {
+		ViewManager.load(view);
+		ViewManager.changeView(view);
 	}
+	
+
 }
