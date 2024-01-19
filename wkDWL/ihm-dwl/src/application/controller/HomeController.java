@@ -6,14 +6,10 @@ package application.controller;
 
 import java.io.IOException;
 
-import application.Quiz;
-import application.modele.ModelePrincipal;
-import application.modele.Partie;
-import application.vue.AlertBox;
+import application.DWL;
+import application.model.MainModel;
+import application.model.WadBank;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 
 /**
  * Controller of the default view.
@@ -25,10 +21,15 @@ import javafx.scene.text.TextAlignment;
 
 public class HomeController {
 	
-	//private MainModel model = MainModel.getInstance();
+	private MainModel model = MainModel.getInstance();
 	
-	@FXML
-		
+	
+		@FXML
+		private void refresh() {
+			System.out.println("Bouton Refresh");
+			WadBank.listerFichiersWadPk3(model.getSearchFolder());
+			
+		}
 	
 
 }

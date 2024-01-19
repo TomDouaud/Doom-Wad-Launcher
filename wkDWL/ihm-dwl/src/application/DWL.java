@@ -58,7 +58,7 @@ public class DWL extends Application {
 		ViewManager.initializeScene();
 		
 	    ressources.add("Main.fxml");
-		// ressources.add("Editeur.fxml");
+		// ressources.add("Editeur.fxml"); TODO where we put the other pages
 		
 		for (String element : ressources) {
 			ViewManager.load(element);
@@ -129,7 +129,7 @@ public class DWL extends Application {
      */
 	public static void quit() throws InternalError, IOException {
 	    if (AlertBox.showConfirmationBox("Do you really whant to quit the application ?")) {
-	    	MainModel.getInstance().serialize();
+	    	// MainModel.getInstance().serialize(); TODO for the serialisation
 	        Platform.exit();            
         }
 	}

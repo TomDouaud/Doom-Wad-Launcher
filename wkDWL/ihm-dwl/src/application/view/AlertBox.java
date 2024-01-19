@@ -1,6 +1,8 @@
 /*
- * AlertBox.java 			                     29 november 2023
+ * AlertBox.java                                    26 oct. 2023
+ * IUT de Rodez, info1 2022-2023, aucun copyright ni copyleft
  */
+
 package application.view;
 
 import java.util.Optional;
@@ -8,20 +10,20 @@ import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextArea;
 
 /**
- * Classe for the different types of AlertBox
+ * Classe contenant les différents types d'alertbox
  * 
- * based on work by :
  * @author Quentin COSTES
  */
 public abstract class AlertBox {
     
 
 	/**
-	 * Confirmation alertbox
-	 * @param message (String) The message that will be shown to the user
-	 * @return the result of the user input
+	 * Alert box de confirmation 
+	 * @param message
+	 * @return
 	 */
     public static boolean showConfirmationBox(String message) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -29,56 +31,71 @@ public abstract class AlertBox {
         alert.setContentText(message);
         alert.setTitle("Confirmation");
 
-        ButtonType buttonTypeYes = new ButtonType("Validate");
-        ButtonType buttonTypeNo = new ButtonType("Cancel");
+        ButtonType buttonTypeYes = new ButtonType("Valider");
+        ButtonType buttonTypeNo = new ButtonType("Annuler");
 
-        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+        alert.getButtonTypes().setAll(buttonTypeNo, buttonTypeYes);
 
         Optional<ButtonType> result = alert.showAndWait();
         return result.isPresent() && result.get() == buttonTypeYes;
     }
     
     /**
-     * Succes alertbox
-     * @param message (String) The message that will be shown to the user
+     * Alert box pour afficher le succès d'une opération
+     * @param message
      */
     public static void showSuccessBox(String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setContentText(message);
-        alert.setTitle("Sucess");
+        alert.setTitle("Succès");
 
         alert.showAndWait();
     }
 
     /**
-     * Error alertbox
-     * @param message (String) The message that will be shown to the user
+     * Alert box pour afficher une erreur
+     * @param message
      */
     public static void showErrorBox(String message) {
         Alert alert = new Alert(AlertType.ERROR);
         alert.setHeaderText(null);
         alert.setContentText(message);
-        alert.setTitle("Error");
+        alert.setTitle("Erreur");
         alert.setResizable(true);;
 
         alert.showAndWait();
     }
 
     /**
-     * Warning alertbox
-     * @param message (String) The message that will be shown to the user
+     * Alert box pour afficher un message d'erreur avec une zone de log
+     * @param message le message d'erreur 
+     * @param log tout le log d'erreur à envoyer
+     */
+    public static void showLongErrorBox(String message, String log) {
+    	Alert alert = new Alert(AlertType.ERROR);
+    	alert.setHeaderText(null);
+    	alert.setContentText(message);
+    	alert.setTitle("Erreur");
+    	alert.setResizable(false);
+    	
+    	TextArea logMessage = new TextArea();
+    	logMessage.setText(log);
+    	alert.getDialogPane().setExpandableContent(logMessage);
+    	
+    	alert.showAndWait();
+    }
+    
+    /**
+     * Alert box pour afficher un message d'avertissement
+     * @param message
      */
     public static void showWarningBox(String message) {
         Alert alert = new Alert(AlertType.WARNING);
         alert.setHeaderText(null);
         alert.setContentText(message);
-        alert.setTitle("Warning");
+        alert.setTitle("Attention");
         
         alert.showAndWait();
     }
-    
-    
-    
-    
 }

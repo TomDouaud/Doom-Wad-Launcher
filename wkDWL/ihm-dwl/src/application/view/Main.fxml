@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HomeController">
    <children>
       <Pane prefHeight="70.0" prefWidth="1000.0" style="-fx-background-color: #514c4c;">
          <children>
@@ -88,7 +88,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="560.0" layoutY="115.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="32.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
+      <Button layoutX="560.0" layoutY="115.0" mnemonicParsing="false" onAction="#refresh" prefHeight="40.0" prefWidth="32.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
