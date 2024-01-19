@@ -56,6 +56,7 @@ public class DWL extends Application {
         instance = this;
 		ressources = new ArrayList<String>();
 		ViewManager.initializeScene();
+		MainModel.getInstance();
 		
 	    ressources.add("Main.fxml");
 		// ressources.add("Editeur.fxml"); TODO where we put the other pages

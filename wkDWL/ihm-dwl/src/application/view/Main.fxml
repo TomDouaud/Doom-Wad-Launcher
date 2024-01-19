@@ -99,7 +99,7 @@
       </Button>
       <ScrollPane layoutX="85.0" layoutY="170.0" prefHeight="377.0" prefWidth="527.0" style="-fx-background-radius: 20px;" stylesheets="@css/mainStyle.css">
          <content>
-            <ListView prefHeight="414.0" prefWidth="499.0" style="-fx-background-color: #514c4c; -fx-background-radius: 20px;" />
+            <ListView prefHeight="377.0" prefWidth="499.0" />
          </content></ScrollPane>
       <Pane layoutX="660.0" layoutY="115.0" prefHeight="435.0" prefWidth="315.0" style="-fx-background-color: #514c4c;">
          <children>

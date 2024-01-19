@@ -27,8 +27,8 @@ public class HomeController {
 		@FXML
 		private void refresh() {
 			System.out.println("Bouton Refresh");
-			WadBank.listerFichiersWadPk3(model.getSearchFolder());
-			
+			model.getWadBank().listerFichiersWadPk3(model.getSearchFolder());
+			System.out.print(model.getWadBank().toString() + "OUA");
 		}
 	
 

@@ -9,10 +9,25 @@ import java.util.List;
 
 public class WadBank {
 	
-	
+	private ArrayList<WadItem> wads;
     
-    public static List<File> listerFichiersWadPk3(String cheminDossier) {
-    	
+
+	public WadBank() {
+		wads = new ArrayList<WadItem>();
+	}
+	
+	/**
+     * Add a wad to the wadBank
+     * @param WadItem the wad to add 
+     * @throws HomonymeException if the wad aleready is in the bank
+     */
+    public void ajouter(File fichier) { //throws HomonymeException {
+    	WadItem wad = new WadItem(fichier);
+    	wads.add(wad);
+    }
+	
+    public void listerFichiersWadPk3(String cheminDossier) {
+    	this.wads = new ArrayList<WadItem>();
         List<File> fichiersWadPk3 = new ArrayList<>();
 
         // Créez un objet File pour représenter le dossier
@@ -34,12 +49,34 @@ public class WadBank {
         if (!fichiersWadPk3.isEmpty()) {
         	// Affichez la liste des fichiers
         	for (File fichier : fichiersWadPk3) {
+        		ajouter(fichier);
         		System.out.println(fichier.getAbsolutePath());
         	}     	
         } else {
         	System.out.println("Aucune wad ou pk3 trouvée !");
         }
-        
-        return fichiersWadPk3;
+    }
+    
+    /**
+     * Permet de récupérer toutes les questions
+     * @return Toutes les questions (ArrayList)
+     */
+    public ArrayList<WadItem> getWads() {
+        return wads;
+    }
+    
+    
+    /* non javadoc - @see java.lang.Object#toString() */
+    @Override
+    public String toString() {
+        StringBuilder resultat = new StringBuilder();
+        resultat.append("Nombre de wad : " + wads.size() + "\n\n");
+        for (WadItem wad : wads) {
+            resultat.append(wad.toString());
+            resultat.append("\n\n"
+                            + "--------------------------------------------"
+                            + "\n\n");
+        }
+        return resultat.toString();
     }
 }
