@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="500.0" style="-fx-background-color: #5c6169;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="100.0" fitWidth="160.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../cache/scythe2.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="286.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wad Title">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="201.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wad description" wrappingWidth="273.13671875" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="191.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Downloads.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="211.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NB Dwld" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="271.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/star.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="291.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="337.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/calendar.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="357.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="400.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/user.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="420.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" />
+   </children>
+</Pane>

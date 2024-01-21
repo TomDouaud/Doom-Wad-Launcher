@@ -10,6 +10,7 @@ import application.DWL;
 import application.model.MainModel;
 import application.model.WadBank;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 
 /**
  * Controller of the default view.
@@ -20,6 +21,9 @@ import javafx.fxml.FXML;
 
 
 public class HomeController {
+	
+	@FXML
+	private ListView listView;
 	
 	private MainModel model = MainModel.getInstance();
 	
