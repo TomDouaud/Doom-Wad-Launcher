@@ -91,7 +91,7 @@ public class WadItem {
 				if (entry.getName().startsWith("TITLEPIC")) {
 					Picture p = wad.getDataAs(entry, Picture.class);
 					ImageIO.write(GraphicUtils.createImage(p, pal), "PNG", new File("./cache/", getRawTitle().substring(0, rawTitle.length() - 4) +".png"));
-					setImage("./cache/" + getRawTitle() +".png");
+					setImage("./cache/" + getRawTitle().substring(0, rawTitle.length() - 4) +".png");
 				} 
 			}
 			wad.close();
@@ -281,10 +281,14 @@ public class WadItem {
 	 * @throws Exception
 	 */
 	private void callIdgamesArchive() throws Exception {
-		String curatedTitle =  this.rawTitle.replaceAll("[^a-zA-Z0-9]", " ");
+		
+		String curatedTitle = getRawTitle().substring(0, rawTitle.length() - 4);
+		curatedTitle += ".zip";
+		curatedTitle = curatedTitle.replaceAll("[^a-zA-Z0-9]", " ");
 		curatedTitle = curatedTitle.trim();
 		curatedTitle = curatedTitle.replaceAll(" ", "_");
 		URL url = new URL("https://www.doomworld.com/idgames/api/api.php?action=search&query=" + curatedTitle + "&type=filename&sort=filename&out=json");
+		System.out.println(url);
  		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
  		conn.setRequestMethod("GET");
  		conn.setRequestProperty("Accept", "application/json");

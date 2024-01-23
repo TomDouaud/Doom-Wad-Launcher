@@ -59,7 +59,7 @@ public class DWL extends Application {
 		MainModel.getInstance();
 		
 	    ressources.add("Main.fxml");
-	    ressources.add("WadItem.fxml");
+	    // ressources.add("WadItem.fxml");
 		// ressources.add("Editeur.fxml"); TODO where we put the other pages
 		
 		for (String element : ressources) {
