@@ -56,8 +56,10 @@ public class DWL extends Application {
         instance = this;
 		ressources = new ArrayList<String>();
 		ViewManager.initializeScene();
+		MainModel.getInstance();
 		
 	    ressources.add("Main.fxml");
+	    // ressources.add("WadItem.fxml");
 		// ressources.add("Editeur.fxml"); TODO where we put the other pages
 		
 		for (String element : ressources) {
@@ -66,7 +68,7 @@ public class DWL extends Application {
 
 		 try {
 		    Image logo 
-		    = new Image("application/vue/images/IconePrincipale.png"); // TODO le logo de l'application
+		    = new Image("application/vue/images/Proto1.png"); // TODO le logo de l'application
 		    
             primaryStage.getIcons().add(logo);
          } catch (Exception e) {

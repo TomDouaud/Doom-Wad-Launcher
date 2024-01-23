@@ -22,6 +22,8 @@ public class MainModel {
 
     private static MainModel model;
     
+    private WadBank wadBank;
+    
 	// The folder to search for wads or pk3
     private String searchFolder = "C:\\Users\\douau\\Desktop\\DWL\\TestWad"; // TODO change this
     
@@ -32,6 +34,8 @@ public class MainModel {
      * Constructor of the main model
      */
     private MainModel() {
+    	this.wadBank = new WadBank(); // TODO ptet changer ca pour la serialisation
+    	wadBank.listerFichiersWadPk3(searchFolder);
     	
     	// TODO where is the serialisation
     	// this.banqueCategorie = deSerialiserCategorie();
@@ -63,6 +67,12 @@ public class MainModel {
     public void setSearchFolder(String searchFolder) {
     	this.searchFolder = searchFolder;
     }
+    
+	public WadBank getWadBank() {
+		return wadBank;
+	}
+
+
 
     
     /**

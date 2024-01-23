@@ -29,8 +29,7 @@ bin/
 .settings/
 .classpath
 .project
-wkQuiz/ihm-quizz/build.fxbuild
+wkDWL/ihm-ihm-dwl/build.fxbuild
 
-#Modelio
-Modelio/Cas d utilisation/.runtime/
-Modelio/Digramme de classe/.runtime/
+# Cache images
+wkDWL/ihm-dwl/cache/

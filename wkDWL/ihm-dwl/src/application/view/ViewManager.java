@@ -11,6 +11,7 @@ import application.DWL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 
 /**
  * Manage the loading and the change og the views
@@ -36,10 +37,31 @@ public class ViewManager {
             scenes.put(view, new Scene(racine));
             
         } catch (IOException e) {
+        	e.printStackTrace();
             System.err.println("Can't load : " + view);
         } catch (NullPointerException e) {
             System.err.println("File not found : " + view);
             e.printStackTrace();
+        }
+    }
+    
+    /** 
+     * Load WAD items into a ListView
+     * 
+     * @param listView (ListView<Parent>) The ListView to load items into
+     * @param wadItems  (String[])       Array of WAD item FXML file names
+     */
+    public static void loadWadItems(ListView<Parent> listView, String[] wadItems) {
+        for (String wadItem : wadItems) {
+            try {
+                Parent wadItemRoot = FXMLLoader.load(DWL.getInstance().getClass().getResource("view/" + wadItem));
+                listView.getItems().add(wadItemRoot);
+            } catch (IOException e) {
+                System.err.println("Can't load : " + wadItem);
+            } catch (NullPointerException e) {
+                System.err.println("File not found : " + wadItem);
+                e.printStackTrace();
+            }
         }
     }
 
