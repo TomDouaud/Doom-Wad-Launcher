@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="500.0" style="-fx-background-color: #5c6169;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="500.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="wadImage" fitHeight="100.0" fitWidth="160.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../cache/scythe2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="310.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="292.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/star.png" />
          </image>
@@ -28,11 +28,11 @@
             <Image url="@images/user.png" />
          </image>
       </ImageView>
-      <Label fx:id="wadDescription" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="194.0" layoutY="42.0" prefHeight="55.0" prefWidth="289.0" text="Wad description" />
-      <Label fx:id="wadAuthor" layoutX="204.0" layoutY="98.0" prefHeight="17.0" prefWidth="98.0" text="Author" />
-      <Label fx:id="wadRated" layoutX="336.0" layoutY="98.0" prefHeight="17.0" prefWidth="51.0" text="Rating" />
+      <Label fx:id="wadDescription" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="194.0" layoutY="44.0" prefHeight="55.0" prefWidth="289.0" text="Wad description" wrapText="true" />
+      <Label fx:id="wadAuthor" layoutX="204.0" layoutY="98.0" prefHeight="17.0" prefWidth="89.0" text="Author" />
+      <Label fx:id="wadRated" layoutX="318.0" layoutY="98.0" prefHeight="17.0" prefWidth="71.0" text="Rating" />
       <Label fx:id="wadDate" layoutX="408.0" layoutY="98.0" prefHeight="17.0" prefWidth="83.0" text="Date" />
-      <Label fx:id="wadTitle" layoutX="286.0" layoutY="14.0" text="Wad Title">
+      <Label fx:id="wadTitle" alignment="CENTER" layoutX="191.0" layoutY="14.0" prefHeight="36.0" prefWidth="299.0" text="Wad Title">
          <font>
             <Font size="25.0" />
          </font>

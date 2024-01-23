@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.scene.control.Tooltip;
 
 /**
  * Controller of the wad item view.
@@ -82,10 +83,27 @@ public class WadListViewCell extends ListCell<WadItem> {
 
 
 	            wadTitle.setText(wadItem.getTitle());
+	            Tooltip titleInformation = new Tooltip(wadTitle.getText());
+                Tooltip.install(wadTitle, titleInformation);
+
 	            wadDescription.setText(wadItem.getDescription());
+	            Tooltip descriptionInformation = new Tooltip(wadDescription.getText());
+	            descriptionInformation.setPrefWidth(300);
+	            descriptionInformation.setWrapText(true);
+                Tooltip.install(wadDescription, descriptionInformation);
+                
 	            wadRated.setText(wadItem.getRating());
+	            Tooltip ratingInformation = new Tooltip(wadRated.getText());
+                Tooltip.install(wadRated, ratingInformation);
+                
 	            wadDate.setText(wadItem.getRealaseDate());
+	            Tooltip dateInformation = new Tooltip(wadDate.getText());
+                Tooltip.install(wadDate, dateInformation);
+                
 	            wadAuthor.setText(wadItem.getAuthor());
+	            Tooltip authorInformation = new Tooltip(wadAuthor.getText());
+                Tooltip.install(wadAuthor, authorInformation);
+                
 	            Image image = null;
 				try {
 					image = new Image(new FileInputStream(wadItem.getImage()));

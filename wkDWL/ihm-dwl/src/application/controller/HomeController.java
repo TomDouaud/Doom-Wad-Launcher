@@ -57,6 +57,7 @@ public class HomeController implements Initializable {
 	private void refresh() {
 		System.out.println("Bouton Refresh");
 		model.getWadBank().listerFichiersWadPk3(model.getSearchFolder());
+		wadObservableList.clear();
 		wadObservableList.addAll(model.getWadBank().getWads());
 		
 	}

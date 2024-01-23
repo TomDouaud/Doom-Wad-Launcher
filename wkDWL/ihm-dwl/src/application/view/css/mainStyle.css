@@ -5,12 +5,22 @@
    -fx-background-color: transparent;
 }
 
-.scroll-pane .scroll-bar:vertical {
+.scroll-bar:vertical {
     -fx-border-color: transparent; /* Couleur barre onglet (meme couleur que l'application) */
     -fx-background-color: transparent; /* meme couleur que l'application) */
     /* Augmente la taille de la barre de scroll */
     -fx-pref-width: 25px;
 } 
+
+/* Gestion des listcell */
+.list-cell {
+    -fx-background-color: #5c6169;
+}
+
+.list-cell:odd {
+    -fx-background-color: #4b4e53;
+}
+
 
 /* Gestion de la barre de scroll */
 .thumb {

@@ -33,7 +33,7 @@ import net.mtrop.doom.util.GraphicUtils;
 public class WadItem {
 	
 	// The array of all the IWAD
-	private final static String[] IWAD = {"doom", "doom1", "doom2", "doom2f", "doom64", "tnt", "plutonia", "heretic1", "heretic", "hexen", "hexdd", "strife0", "strife1", "voices", "chex"};
+	private final static String[] IWAD = {"doom", "doom1", "doom2", "doom2f", "doom64", "tnt", "plutonia", "freedm", "freedoom1", "freedoom2", "heretic1", "heretic", "hexen", "hexdd", "strife0", "strife1", "voices", "chex", "chex3", "hacx", "nerf"};
 	
 	// The default color palette of Doom (for the custom titlepic of the pwad)
 	private final int[][] DEFAULT_PALETTE_VALUES =  {{0, 0, 0}, {31, 23, 11}, {23, 15, 7}, {75, 75, 75}, {-1, -1, -1}, {27, 27, 27},  {19, 19, 19}, {11, 11, 11}, {7, 7, 7}, {47, 55, 31}, {35, 43, 15}, {23, 31, 7},  {15, 23, 0}, {79, 59, 43}, {71, 51, 35}, {63, 43, 27}, {-1, -73, -73}, {-9, -85, -85},  {-13, -93, -93},  {-21, -105, -105},  {-25, -113, -113},  {-33, -121, -121},  {-37, 123, 123},  {-45, 115, 115},  {-53, 107, 107},  {-57, 99, 99},  {-65, 91, 91},  {-69, 87, 87},  {-77, 79, 79},  {-81, 71, 71},  {-89, 63, 63},  {-93, 59, 59},  {-101, 51, 51},  {-105, 47, 47},  {-113, 43, 43},  {-117, 35, 35},  {-125, 31, 31},  {127, 27, 27},  {119, 23, 23},  {115, 19, 19},  {107, 15, 15},  {103, 11, 11},  {95, 7, 7},  {91, 7, 7},  {83, 7, 7},  {79, 0, 0},  {71, 0, 0},  {67, 0, 0},  {-1, -21, -33},  {-1, -29, -45},  {-1, -37, -57},  {-1, -45, -69},  {-1, -49, -77},  {-1, -57, -89},  {-1, -65, -101},  {-1, -69, -109},  {-1, -77, -125},  {-9, -85, 123},  {-17, -93, 115},  {-25, -101, 107},  {-33, -109, 99},  {-41, -117, 91},  {-49, -125, 83},  {-53, 127, 79},  {-65, 123, 75},  {-77, 115, 71},  {-85, 111, 67},  {-93, 107, 63},  {-101, 99, 59},  {-113, 95, 55},  {-121, 87, 51},  {127, 83, 47},  {119, 79, 43},  {107, 71, 39},  {95, 67, 35},  {83, 63, 31},  {75, 55, 27},  {63, 47, 23},  {51, 43, 19},  {43, 35, 15},  {-17, -17, -17},  {-25, -25, -25},  {-33, -33, -33},  {-37, -37, -37},  {-45, -45, -45},  {-53, -53, -53},  {-57, -57, -57},  {-65, -65, -65},  {-73, -73, -73},  {-77, -77, -77},  {-85, -85, -85},  {-89, -89, -89},  {-97, -97, -97},  {-105, -105, -105},  {-109, -109, -109},  {-117, -117, -117},  {-125, -125, -125},  {127, 127, 127},  {119, 119, 119},  {111, 111, 111},  {107, 107, 107},  {99, 99, 99},  {91, 91, 91},  {87, 87, 87},  {79, 79, 79},  {71, 71, 71},  {67, 67, 67},  {59, 59, 59},  {55, 55, 55},  {47, 47, 47},  {39, 39, 39},  {35, 35, 35},  {119, -1, 111},  {111, -17, 103},  {103, -33, 95},  {95, -49, 87},  {91, -65, 79},  {83, -81, 71},  {75, -97, 63},  {67, -109, 55},  {63, -125, 47},  {55, 115, 43},  {47, 99, 35},  {39, 83, 27},  {31, 67, 23},  {23, 51, 15},  {19, 35, 11},  {11, 23, 7},  {-65, -89, -113},  {-73, -97, -121},  {-81, -105, 127},  {-89, -113, 119},  {-97, -121, 111},  {-101, 127, 107},  {-109, 123, 99},  {-117, 115, 91},  {-125, 107, 87},  {123, 99, 79},  {119, 95, 75},  {111, 87, 67},  {103, 83, 63},  {95, 75, 55},  {87, 67, 51},  {83, 63, 47},  {-97, -125, 99},  {-113, 119, 83},  {-125, 107, 75},  {119, 95, 63},  {103, 83, 51},  {91, 71, 43},  {79, 59, 35},  {67, 51, 27},  {123, 127, 99},  {111, 115, 87},  {103, 107, 79},  {91, 99, 71},  {83, 87, 59},  {71, 79, 51},  {63, 71, 43},  {55, 63, 39},  {-1, -1, 115},  {-21, -37, 87},  {-41, -69, 67},  {-61, -101, 47},  {-81, 123, 31},  {-101, 91, 19},  {-121, 67, 7},  {115, 43, 0},  {-1, -1, -1},  {-1, -37, -37},  {-1, -69, -69},  {-1, -101, -101},  {-1, 123, 123},  {-1, 95, 95},  {-1, 63, 63},  {-1, 31, 31},  {-1, 0, 0},  {-17, 0, 0},  {-29, 0, 0},  {-41, 0, 0},  {-53, 0, 0},  {-65, 0, 0},  {-77, 0, 0},  {-89, 0, 0},  {-101, 0, 0},  {-117, 0, 0},  {127, 0, 0},  {115, 0, 0},  {103, 0, 0},  {91, 0, 0},  {79, 0, 0},  {67, 0, 0},  {-25, -25, -1},  {-57, -57, -1},  {-85, -85, -1},  {-113, -113, -1},  {115, 115, -1},  {83, 83, -1},  {55, 55, -1},  {27, 27, -1},  {0, 0, -1},  {0, 0, -29},  {0, 0, -53},  {0, 0, -77},  {0, 0, -101},  {0, 0, -125},  {0, 0, 107},  {0, 0, 83},  {-1, -1, -1},  {-1, -21, -37},  {-1, -41, -69},  {-1, -57, -101},  {-1, -77, 123},  {-1, -93, 91},  {-1, -113, 59},  {-1, 127, 27},  {-13, 115, 23},  {-21, 111, 15},  {-33, 103, 15},  {-41, 95, 11},  {-53, 87, 7},  {-61, 79, 0},  {-73, 71, 0},  {-81, 67, 0},  {-1, -1, -1},  {-1, -1, -41},  {-1, -1, -77},  {-1, -1, -113},  {-1, -1, 107},  {-1, -1, 71},  {-1, -1, 35},  {-1, -1, 0},  {-89, 63, 0},  {-97, 55, 0},  {-109, 47, 0},  {-121, 35, 0},  {79, 59, 39},  {67, 47, 27},  {55, 35, 19},  {47, 27, 11},  {0, 0, 83},  {0, 0, 71},  {0, 0, 59},  {0, 0, 47},  {0, 0, 35},  {0, 0, 23},  {0, 0, 11},  {0, 0, 0},  {-1, -97, 67},  {-1, -25, 75},  {-1, 123, -1},  {-1, 0, -1},  {-49, 0, -49},  {-97, 0, -101},  {111, 0, 107},  {-89, 107, 107}};
@@ -72,7 +72,6 @@ public class WadItem {
 			setImage(DEFAULT_IMAGE); // TODO change the picture to an pk3 picture
 		}
 		
-		System.out.println(getImage());
 	}
 	
 	/**
@@ -258,12 +257,166 @@ public class WadItem {
                 	setDescription("No Description Found :-(");
                 	setAuthor("Unknown Author");
                 	setRating("Not rated");
-                	setRealaseDate("Realeased date not found");
+                	setRealaseDate("Unknown Date");
         		}
         		
         	} else {
-        		System.out.println("c'est une IWAD");
-        		// TODO manage the meta data for the differents IWAD
+        		switch (this.rawTitle.toLowerCase().substring(0, rawTitle.length() - 4)) {
+        		    case "doom1":
+        		    	setTitle("Doom shareware");
+                    	setDescription("The original shareware episode for doom");
+                    	setAuthor("ID Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1993-12-10");
+                    	break;
+                    	
+        		    case "doom":
+        		    	setTitle("The Ultimate Doom");
+                    	setDescription("The full game with the four episodes");
+                    	setAuthor("ID Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1995-04-30");
+                    	break;
+                    	
+        		    case "doom2":
+        		    case "doom2f":
+        		    	setTitle("Doom II: Hell on Earth");
+                    	setDescription("The sequel with 32 new levels");
+                    	setAuthor("ID Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1994-09-30");
+                    	break;
+                    	
+        		    case "doom64":
+        		    	setTitle("Doom 64");
+                    	setDescription("The Nintendo 64 version, developped by Midway");
+                    	setAuthor("Midway");
+                    	setRating("Not rated");
+                    	setRealaseDate("1997-04-04");
+                    	break;
+                    	
+        		    case "tnt":
+        		    	setTitle("TNT: Evilution");
+                    	setDescription("The first half of Final Doom, and the second wad realased by The TeamTNT");
+                    	setAuthor("TeamTNT");
+                    	setRating("Not rated");
+                    	setRealaseDate("1996-06-17");
+                    	break;
+                    	
+        		    case "plutonia":
+        		    	setTitle("The Plutonia Experiment");
+                    	setDescription("The second half of Final Doom, made by the Casali brothers");
+                    	setAuthor("Milo and Dario Casali");
+                    	setRating("Not rated");
+                    	setRealaseDate("1996-06-17");
+                    	break;
+                    	
+        		    case "nerf":
+        		    	setTitle("No Rest for the Living");
+                    	setDescription("The XBLA Doom II extension");
+                    	setAuthor("Nerve Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("2010");
+                    	break;
+                    	
+        		    case "freedoom1":
+        		    	setTitle("Freedoom: Phase 1");
+                    	setDescription("The open source version of Doom");
+                    	setAuthor("Simon Howard and Mike Swanson");
+                    	setRating("Not rated");
+                    	setRealaseDate("2003-04-16");
+                    	break;
+                    
+        		    case "freedoom2":
+        		    	setTitle("Freedoom: Phase 2");
+                    	setDescription("The open source version of Doom II");
+                    	setAuthor("Simon Howard and Mike Swanson");
+                    	setRating("Not rated");
+                    	setRealaseDate("2014-10-14");
+                    	break;
+                    	
+        		    case "freedm":
+        		    	setTitle("FreeDM");
+                    	setDescription("A deathmatch game by the team behind Freedoom");
+                    	setAuthor("Simon Howard and Mike Swanson");
+                    	setRating("Not rated");
+                    	setRealaseDate("2003");
+                    	break;
+                    	
+        		    case "heretic1":
+        		    	setTitle("Heretic shareware");
+                    	setDescription("The first episode of Heretic");
+                    	setAuthor("Raven Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1994-12-23");
+                    	break;
+                    	
+        		    case "heretic":
+        		    	setTitle("Heretic");
+                    	setDescription("The medieval-fantasy action game by Raven Software");
+                    	setAuthor("Raven Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1994-12-23");
+                    	break;
+                    	
+        		    case "hexen":
+        		    	setTitle("Hexen: Beyond Heretic");
+                    	setDescription("The sequel of Heretic, with it's new hub system and engine improvements");
+                    	setAuthor("Raven Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1995-10-30");
+                    	break;
+                    	
+        		    case "hexdd":
+        		    	setTitle("Hexen: Deathkings of the Dark Citadel");
+                    	setDescription("The expansion pack for Hexen with 26 new levels");
+                    	setAuthor("Raven Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1996-09-03");
+                    	break;
+                    	
+        		    case "strife0":
+        		    	setTitle("Strife: Quest for the Sigil Shareware");
+                    	setDescription("The demo for Strife");
+                    	setAuthor("Rogue Entertainment");
+                    	setRating("Not rated");
+                    	setRealaseDate("1996-05-15");
+                    	break;
+                    	
+        		    case "strife1":
+        		    case "voices" :
+        		    	setTitle("Strife: Quest for the Sigil");
+                    	setDescription("The role playing game on the Doom engine");
+                    	setAuthor("Rogue Entertainment");
+                    	setRating("Not rated");
+                    	setRealaseDate("1996-05-15");
+                    	break;
+                    	
+        		    case "chex" :
+        		    case "chex2" :
+        		    	setTitle("Chex Quest");
+                    	setDescription("The promotional game Chex Quest");
+                    	setAuthor("Digital Café");
+                    	setRating("Not rated");
+                    	setRealaseDate("1996");
+                    	break;
+                    	
+        		    case "chex3" :
+        		    	setTitle("Chex Quest 3");
+                    	setDescription("The fan-made last episode of Chex Quest");
+                    	setAuthor("Charles Jacobi");
+                    	setRating("Not rated");
+                    	setRealaseDate("2008");
+                    	break;
+                    	
+        		    case "hacx" :
+        		    	setTitle("HacX");
+                    	setDescription("The commercial add-on made by Banjo Software");
+                    	setAuthor("Banjo Software");
+                    	setRating("Not rated");
+                    	setRealaseDate("1997-09-16");
+                    	break;
+        		}
         	}
         	
         } catch (Exception e) {
@@ -284,11 +437,10 @@ public class WadItem {
 		
 		String curatedTitle = getRawTitle().substring(0, rawTitle.length() - 4);
 		curatedTitle += ".zip";
-		curatedTitle = curatedTitle.replaceAll("[^a-zA-Z0-9]", " ");
+		curatedTitle = curatedTitle.replaceAll("[^a-zA-Z0-9.]", " ");
 		curatedTitle = curatedTitle.trim();
 		curatedTitle = curatedTitle.replaceAll(" ", "_");
 		URL url = new URL("https://www.doomworld.com/idgames/api/api.php?action=search&query=" + curatedTitle + "&type=filename&sort=filename&out=json");
-		System.out.println(url);
  		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
  		conn.setRequestMethod("GET");
  		conn.setRequestProperty("Accept", "application/json");
@@ -318,10 +470,15 @@ public class WadItem {
  			setTitle(scrapTitle);
  			
  			String scrapDescription = "";
+
  			try {
  				scrapDescription = reponse.substring(reponse.indexOf("\"description\":\"") + 15, reponse.indexOf("\",\"rating\""));
+ 				// Removes the HTML balises and the specials characters
+ 				scrapDescription = scrapDescription.replaceAll("\\<.*?\\>", "");
+ 				scrapDescription = scrapDescription.replace("\\n", "");
+ 				scrapDescription = scrapDescription.replaceAll("\\s+", " ");
  		    } catch(IndexOutOfBoundsException e) {
- 		    	scrapDescription = getRawTitle();
+ 		    	scrapDescription = "No Description Found :-(";
  		    }
  			setDescription(scrapDescription);
  			
@@ -329,7 +486,7 @@ public class WadItem {
  			try {
  				scrapRealaseDate = reponse.substring(reponse.indexOf("\"date\":\"") + 8, reponse.indexOf("\",\"author\""));
  		    } catch(IndexOutOfBoundsException e) {
- 		    	scrapRealaseDate = getRawTitle();
+ 		    	scrapRealaseDate = "Unknown Date";
  		    }
  			setRealaseDate(scrapRealaseDate);
  			
@@ -337,7 +494,7 @@ public class WadItem {
  			try {
  				scrapAuthor = reponse.substring(reponse.indexOf("\"author\":\"") + 10, reponse.indexOf("\",\"email\""));
  		    } catch(IndexOutOfBoundsException e) {
- 		    	scrapAuthor = getRawTitle();
+ 		    	scrapAuthor = "Unknown Author";
  		    }
  			setAuthor(scrapAuthor);
  			
@@ -345,7 +502,7 @@ public class WadItem {
  			try {
  				scrapRating = reponse.substring(reponse.indexOf("\"rating\":") + 9, reponse.indexOf(",\"votes\""));
  		    } catch(IndexOutOfBoundsException e) {
- 		    	scrapRating = getRawTitle();
+ 		    	scrapRating = "Not rated";
  		    }
  			setRating(scrapRating);
  		}

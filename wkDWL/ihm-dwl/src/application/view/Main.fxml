@@ -97,10 +97,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <ScrollPane layoutX="85.0" layoutY="170.0" prefHeight="377.0" prefWidth="527.0" style="-fx-background-radius: 20px;" stylesheets="@css/mainStyle.css">
-         <content>
-            <ListView fx:id="listview" prefHeight="377.0" prefWidth="499.0" />
-         </content></ScrollPane>
+      <ListView fx:id="listview" layoutX="85.0" layoutY="173.0" prefHeight="377.0" prefWidth="561.0" style="-fx-background-color: #333333;" stylesheets="@css/mainStyle.css" />
       <Pane layoutX="660.0" layoutY="115.0" prefHeight="435.0" prefWidth="315.0" style="-fx-background-color: #514c4c;">
          <children>
             <ImageView fitHeight="166.0" fitWidth="265.0" layoutX="45.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
