@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -41,7 +42,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="820.0" layoutY="14.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
+            <Button layoutX="940.0" layoutY="14.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -59,7 +60,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="940.0" layoutY="14.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
+            <Button layoutX="820.0" layoutY="14.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -68,10 +69,10 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ComboBox layoutX="30.0" layoutY="14.0" prefHeight="45.0" prefWidth="255.0" promptText="Choose a source port" style="-fx-background-color: #bfc0c0; -fx-background-radius: 10px;" />
+            <ComboBox fx:id="sourcePortSelecter" layoutX="30.0" layoutY="14.0" prefHeight="45.0" prefWidth="255.0" promptText="Choose a source port" style="-fx-background-color: #bfc0c0; -fx-background-radius: 10px;" />
          </children>
       </Pane>
-      <TextField layoutX="85.0" layoutY="115.0" prefHeight="40.0" prefWidth="280.0" promptText="Search for a wad" style="-fx-background-radius: 10px;">
+      <TextField fx:id="searchField" layoutX="85.0" layoutY="115.0" onKeyPressed="#filter" prefHeight="40.0" prefWidth="280.0" promptText="Search for a wad" style="-fx-background-radius: 10px;">
          <font>
             <Font name="Montserrat Regular" size="18.0" />
          </font></TextField>
@@ -79,9 +80,9 @@
          <font>
             <Font size="17.0" />
          </font></Button>
-      <Button layoutX="495.0" layoutY="115.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="32.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
+      <Button layoutX="495.0" layoutY="115.0" mnemonicParsing="false" onAction="#sort" prefHeight="40.0" prefWidth="32.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;">
          <graphic>
-            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sortImage" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/asc.png" />
                </image>
@@ -100,18 +101,21 @@
       <ListView fx:id="listview" layoutX="85.0" layoutY="173.0" prefHeight="377.0" prefWidth="561.0" style="-fx-background-color: #333333;" stylesheets="@css/mainStyle.css" />
       <Pane layoutX="660.0" layoutY="115.0" prefHeight="435.0" prefWidth="315.0" style="-fx-background-color: #514c4c;">
          <children>
-            <ImageView fitHeight="166.0" fitWidth="265.0" layoutX="45.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="selectedWadImage" fitHeight="151.0" fitWidth="220.0" layoutX="48.0" layoutY="21.0" pickOnBounds="true">
                <image>
-                  <Image url="@images/placeholder/Plutonia_title.png" />
+                  <Image url="@images/defaultWadSelectedImage.png" />
                </image>
             </ImageView>
-            <ScrollPane layoutX="45.0" layoutY="195.0" prefHeight="166.0" prefWidth="221.0" />
+            <ScrollPane layoutX="45.0" layoutY="195.0" prefHeight="166.0" prefWidth="248.0" style="-fx-border-color: #514c4c;" stylesheets="@css/mainStyle.css">
+               <content>
+                  <Label fx:id="selectedWadDescription" alignment="TOP_LEFT" prefWidth="211.0" style="-fx-background-color: #514c4c;" text="Select a Wad" wrapText="true" />
+               </content></ScrollPane>
             <Button layoutX="45.0" layoutY="373.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="149.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;" text="Play with configuration" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button layoutX="210.0" layoutY="373.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="56.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;" text="Play" textAlignment="CENTER">
+            <Button layoutX="210.0" layoutY="373.0" mnemonicParsing="false" onMouseClicked="#play" prefHeight="53.0" prefWidth="56.0" style="-fx-background-radius: 10px; -fx-background-color: #bfc0c0;" text="Play" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>

@@ -68,7 +68,7 @@ public class DWL extends Application {
 
 		 try {
 		    Image logo 
-		    = new Image("application/vue/images/Proto1.png"); // TODO le logo de l'application
+		    = new Image("\\application\\view\\images\\Proto1.png"); // TODO le logo de l'application
 		    
             primaryStage.getIcons().add(logo);
          } catch (Exception e) {

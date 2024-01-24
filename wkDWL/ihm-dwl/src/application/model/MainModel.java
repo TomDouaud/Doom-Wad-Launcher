@@ -25,10 +25,14 @@ public class MainModel {
     private WadBank wadBank;
     
 	// The folder to search for wads or pk3
-    private String searchFolder = "C:\\Users\\douau\\Desktop\\DWL\\TestWad"; // TODO change this
+    private String searchFolder = "C:/Users/douau/Desktop/DWL/TestWad"; // TODO change this
+    
+    
+    private String gzDoomFolder = "D:/Moins Travail/Doom/gzdoom.exe";
     
 	/** the names of the file for the serialisation */
 	// private static final String FICHIER_SERIALISATION_CATEGORIE = "donneesCategorie";
+
 
 	/**
      * Constructor of the main model
@@ -72,6 +76,13 @@ public class MainModel {
 		return wadBank;
 	}
 
+	public String getGzDoomFolder() {
+		return gzDoomFolder;
+	}
+	
+	public void setGzDoomFolder(String gzDoomFolder) {
+		this.gzDoomFolder = gzDoomFolder;
+	}
 
 
     
