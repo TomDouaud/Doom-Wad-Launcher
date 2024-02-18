@@ -25,10 +25,10 @@ public class MainModel {
     private WadBank wadBank;
     
 	// The folder to search for wads or pk3
-    private String searchFolder = "C:/Users/douau/Desktop/DWL/TestWad"; // TODO change this
+    private String searchFolder;
     
     
-    private String gzDoomFolder = "D:/Moins Travail/Doom/gzdoom.exe";
+    private String gzDoomFolder;
     
 	/** the names of the file for the serialisation */
 	// private static final String FICHIER_SERIALISATION_CATEGORIE = "donneesCategorie";
@@ -39,7 +39,10 @@ public class MainModel {
      */
     private MainModel() {
     	this.wadBank = new WadBank(); // TODO ptet changer ca pour la serialisation
-    	wadBank.listerFichiersWadPk3(searchFolder);
+    	// wadBank.listerFichiersWadPk3(searchFolder); TODO ptet virer ca
+    	if (wadBank.getWads().isEmpty()) {
+    		AlertBox.showWarningBox("No WAD found !");
+    	}
     	
     	// TODO where is the serialisation
     	// this.banqueCategorie = deSerialiserCategorie();
@@ -62,6 +65,7 @@ public class MainModel {
         }
         return model;
     }
+    
     
     // TODO where we put the getter and the setters
     public String getSearchFolder() {

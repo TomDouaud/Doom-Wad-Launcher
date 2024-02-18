@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 
 /**
  * Manage the loading and the change og the views
@@ -91,6 +92,21 @@ public class ViewManager {
         DWL.mainStage.setScene(ViewManager.getScene(view));
         
         DWL.mainStage.show();
+    }
+    
+    public static void loadSettings() {
+        System.out.println("Settings Load");
+        DWL.settingsStage.setTitle("DWL - Settings");
+        DWL.settingsStage.setScene(ViewManager.getScene("Settings.fxml"));
+        try {
+		    Image logo 
+		    = new Image("\\application\\view\\images\\Proto1.png"); // TODO le logo de l'application
+		    
+		    DWL.settingsStage.getIcons().add(logo);
+         } catch (Exception e) {
+            System.err.println("Error : the icon is not found");
+         }
+        DWL.settingsStage.show();
     }
 
 }

@@ -33,3 +33,4 @@ wkDWL/ihm-ihm-dwl/build.fxbuild
 
 # Cache images
 wkDWL/ihm-dwl/cache/
+*.wad

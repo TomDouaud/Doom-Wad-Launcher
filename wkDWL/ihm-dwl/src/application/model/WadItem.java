@@ -40,7 +40,7 @@ public class WadItem {
 	private final Palette DEFAULT_PALETTE = getDefaultPalette();
 	
 	// The default image that will be shown if no custom image found
-	private final String DEFAULT_IMAGE = "./cache/DOOM.png";
+	private final String DEFAULT_IMAGE = "./src/application/view/images/DOOM.png";
 	
 	/*
 	 * The title, the rawtitle (for example 666epis.wad is raw title for 666 mini-episode),
@@ -127,6 +127,10 @@ public class WadItem {
 			DEFAULT_PALETTE.setColor(i, DEFAULT_PALETTE_VALUES[i][0], DEFAULT_PALETTE_VALUES[i][1], DEFAULT_PALETTE_VALUES[i][2]);
 		}
 		return DEFAULT_PALETTE;
+	}
+	
+	public static String[] getIwad() {
+		return IWAD;
 	}
 
 	/**

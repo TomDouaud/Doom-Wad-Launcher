@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import application.model.MainModel;
 import application.model.WadItem;
 import application.view.AlertBox;
+import application.view.ViewManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -109,14 +110,38 @@ public class HomeController implements Initializable {
 	}
 
 	@FXML
-	private void play() throws IOException {
+	private void play() {
 		if (selectedWad != null) {
-			System.out.println("Jouer a :" + selectedWad.getRawTitle());
-			System.out.println(model.getGzDoomFolder() + "  " + model.getSearchFolder() + "/" + selectedWad.getRawTitle());
-			runtime.exec(model.getGzDoomFolder() + "  " + model.getSearchFolder() + "/" + selectedWad.getRawTitle());
+			// If the wad is a IWAD
+			for (String iwad : WadItem.getIwad()) {
+				if (selectedWad.getRawTitle().substring(0, selectedWad.getRawTitle().length() - 4).toLowerCase().equals(iwad)) {
+					try {
+						runtime.exec(model.getGzDoomFolder() 
+								  + " -iwad " + model.getSearchFolder() + "/" + selectedWad.getRawTitle());// TODO virer le stub
+					} catch(IOException e) {
+						AlertBox.showErrorBox("A error occured : " + e.toString()  + " !");
+					}
+					return;
+				}
+			}
+			
+			try {
+				runtime.exec(model.getGzDoomFolder() 
+						  + "  " 
+						  + model.getSearchFolder() + "/" + selectedWad.getRawTitle() 
+						  + " -iwad " + model.getSearchFolder() + "/" + "DOOM.WAD");// TODO virer le stub
+			} catch(IOException e) {
+				AlertBox.showErrorBox("A error occured : " + e.toString()  + " !");
+			}
+			
 		} else {
 			AlertBox.showErrorBox("No wad selected !");
 		}
+	}
+	
+	@FXML
+	private void settings() {
+		ViewManager.loadSettings();
 	}
 
 	@FXML
@@ -156,6 +181,12 @@ public class HomeController implements Initializable {
 
 	     listview.setItems(null);
 		 listview.setItems(wadObservableList.filtered(x -> x.getTitle().contains(filterText)));
+
+	  }
+	 
+	 @FXML
+	 private void pasImplemente() {
+	     AlertBox.showWarningBox("Pas encore implémenté !");
 
 	  }
 

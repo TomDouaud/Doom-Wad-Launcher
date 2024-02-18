@@ -13,7 +13,7 @@ public class SourcePortListCell {
         this.icon = icon;
         this.name = name;
     }
-
+// ptet sert a rien TODO SUPPRIMER
     public Image getIcon() {
         return icon;
     }

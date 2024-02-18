@@ -34,6 +34,8 @@ public class DWL extends Application {
 	 */
 	public static Stage mainStage;
 	
+	public static Stage settingsStage;
+	
 	private static DWL instance;
 
 	/** The name of all the .fxml files of the application */
@@ -59,7 +61,7 @@ public class DWL extends Application {
 		MainModel.getInstance();
 		
 	    ressources.add("Main.fxml");
-	    // ressources.add("WadItem.fxml");
+	    ressources.add("Settings.fxml");
 		// ressources.add("Editeur.fxml"); TODO where we put the other pages
 		
 		for (String element : ressources) {
@@ -78,8 +80,10 @@ public class DWL extends Application {
 		 
 		primaryStage.setTitle("DWL - Doom Wad Launcher");
 		mainStage = primaryStage;
+		settingsStage = new Stage();
 		primaryStage.setScene(ViewManager.getScene("Main.fxml"));
 		mainStage.setResizable(false);
+		settingsStage.setResizable(false);
 		
 		primaryStage.setOnCloseRequest((e) -> {
 			try {

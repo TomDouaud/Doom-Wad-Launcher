@@ -1,8 +1,52 @@
+/* Réglage de la taille des onglets */
+.tab-pane {
+    -fx-tab-min-width: 30px;
+    -fx-tab-min-height: 19px;
+    -fx-tab-max-height: 19px;
+}
+
+/* Réglage de la zone derriere les boutons */
+.tab-header-area .tab-header-background {
+    -fx-background-color: #333333; /* Couleur barre onglet (meme couleur que l'application) */
+}
+
+/* Les onglets */
+.tab {
+    -fx-background-color: #514c4c; /* Couleur onglet par défault */
+    -fx-font-size: 10px;  /* Taille texte onglet */
+    -fx-background-radius: 10 10 0 0; /* Arrondi onglet */
+    -fx-padding: 0 10 0 10;
+    -fx-opacity: 0.7;
+}
+/* Onglet selectionné */
+.tab:selected {
+    -fx-background-color: #282C34;
+    -fx-opacity: 1;
+}
+
+/* Texte des onglets */
+.tab-label { 
+   -fx-alignment: CENTER;
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+   -fx-padding: 0 10 0 10;
+}
+
+/* Enleve l'outline dégeulasse quand séléctionné */
+.tab-pane:focused .tab-header-area .headers-region .tab:selected .focus-indicator {
+    -fx-border-width: 0;
+   -fx-border-insets: 0 0 0 0;
+   -fx-border-radius: 0;
+}
+
+
+
 .scroll-pane > .viewport {
    -fx-background-color: transparent;
 }
 .scroll-pane {
    -fx-background-color: transparent;
+   -fx-text-background-color:  #000000;
 }
 
 .scroll-bar:vertical {
@@ -15,10 +59,15 @@
 /* Gestion des listcell */
 .list-cell {
     -fx-background-color: #5c6169;
+    -fx-text-background-color:  #000000;
 }
 
 .list-cell:odd {
     -fx-background-color: #4b4e53;
+}
+
+.list-cell:selected {
+    -fx-background-color: #bfc0c0;
 }
 
 
