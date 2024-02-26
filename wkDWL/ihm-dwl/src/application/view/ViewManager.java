@@ -100,7 +100,7 @@ public class ViewManager {
         DWL.settingsStage.setScene(ViewManager.getScene("Settings.fxml"));
         try {
 		    Image logo 
-		    = new Image("\\application\\view\\images\\Proto1.png"); // TODO le logo de l'application
+		    = new Image("./Proto1.png"); // TODO le logo de l'application
 		    
 		    DWL.settingsStage.getIcons().add(logo);
          } catch (Exception e) {
